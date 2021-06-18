@@ -1,0 +1,79 @@
+---
+title: "Code hygiene: на примере R"
+author: |
+    | Георгий Мороз
+    | 
+    | \small Международная лаборатория языковой конвергенции (НИУ ВШЭ)
+    |
+    | 18 июня 2021, ReproducibiliTea (Moscow)
+output: 
+  beamer_presentation:
+    df_print: kable
+    latex_engine: xelatex
+    includes:
+      in_header: "config/presento.sty"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+# setwd("/home/agricolamz/work/materials/2021.06.18_ReproducibiliTea")
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, dev='cairo_pdf')
+options(tinytex.verbose = TRUE)
+
+```
+# To comment or not to comment?
+
+## To comment or not to comment?
+
+* через полгода вы все забудите (поэтому кроме комментариев, стоит еще следовать принципу простоты, [KISS, Keep it simple, stupid](https://en.wikipedia.org/wiki/KISS_principle))
+* легче ориентироваться в коде и его исправлять, в случае возникновения ошибки
+* не стыдно отдавать и показывать код (рано или поздно придется) другим (даже не знающим языка программирования)
+* код может стать обучающим материалом
+
+## Как комменитровать?
+
+* каждый комментарий должен отображать, что вы хотите сделать этим кусочком кода
+    * а не, например, просто повторять то, что очевидно из названий функции
+* каждый комментарий нужно обновлять, если ваши цели поменялись
+* подробность и количетсво комментариев зависит от ваших целей и сил, это шкала:
+    * код без комментариев
+    * ...
+    * код который можно переписать на другом языке программирования на основе комментариев
+
+## Как комменитровать в R?
+
+* Скрипт
+    * `# ваш комментарий`
+    * `Ctrl+R --------------------------------------------------------`
+* RMarkdown
+
+# Pets or livestock?
+
+## Pets or livestock? (см. [пост Maëlle Salmon, 2017/08/08](https://masalmon.eu/2017/08/08/chunkpets/))
+
+* люди видят в учебниках названия переменнных `x`, `y`, `fit1`, `fit2`
+* имеет смысл заботится о ваших переменных, файлах, папках, путях, кусочках кода в Rmakrdown \pause
+    * через полгода вы все забудите (поэтому кроме комментариев, стоит еще следовать принципу простоты, [KISS, Keep it simple, stupid](https://en.wikipedia.org/wiki/KISS_principle))
+    * легче ориентироваться в коде и его исправлять, в случае возникновения ошибки
+    * не стыдно отдавать и показывать код (рано или поздно придется) другим (даже не знающим языка программирования)
+    * код может стать обучающим материалом \pause
+* имеет смысл придерживаться единого стиля в назывании
+    * `extract_coefficients`
+    * `extract.coefficients`
+    * `ExtractCoefficients`
+
+# DRY or WET?
+
+## DRY or WET?
+
+* DRY --- Don’t repeat yourself 
+* WET --- Write Everything Twice / We enjoy typing
+
+* Напишите функцию
+* Напишите пакет
+* отдайте пакет в [rOpenSci](https://ropensci.org/)
+
+## {}
+
+\LARGE Внимабо за спасиние!
